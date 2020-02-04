@@ -7,8 +7,6 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.openqa.selenium.WebDriver;
 
-import com.aventstack.extentreports.Status;
-
 import br.com.dbserver.selenium_jupiter.tasks.AddressTasks;
 import br.com.dbserver.selenium_jupiter.tasks.HomePageTasks;
 import br.com.dbserver.selenium_jupiter.tasks.ItemPageTasks;
@@ -24,7 +22,7 @@ import br.com.dbserver.selenium_jupiter.tools.Report;
 import br.com.dbserver.selenium_jupiter.verificationPoints.TestCase01VerificationPoints;
 
 @TestInstance(Lifecycle.PER_CLASS)
-class TesteCase01 {	
+class ComprarUmItemTestCase {	
 
 	private WebDriver driver ;	
 
@@ -38,17 +36,16 @@ class TesteCase01 {
 	private PaymentTasks   	 			 paymentTasks;	
 	private OrderSumariTasks 			 orderSumariTasks;
 	private TestCase01VerificationPoints verifications;
-	private CustomerFake customerFake;
+	private CustomerFake 				 customerFake;
 
 	@BeforeAll  		
-	public void setUp() {				
-		Report.startTest("(Chrome) Add New Delivery Address.");	
-		Report.log(Status.INFO, "The test is running.");	
-
+	public void setUp() {		
+		
+		Report.startTest("Comprar Um Item");
+		
 		this.customerFake = new CustomerFake();
 
 		this.driver = DriverConfig.getWebdriverChrome("http://automationpractice.com/index.php");	
-		Report.log(Status.INFO, "This test is over. ");	
 
 		this.homePageTasks    = new HomePageTasks 	(this.driver);
 		this.loginPageTasks   = new LoginPageTasks	(this.driver);
@@ -63,9 +60,9 @@ class TesteCase01 {
 	} 
 
 	@AfterAll 
-	public void tearDown() {		
-		Report.log(Status.INFO, "This test is over. ");		
+	public void tearDown() {			
 		this.driver.quit();
+		Report.close();
 	}
 
 	@Test
