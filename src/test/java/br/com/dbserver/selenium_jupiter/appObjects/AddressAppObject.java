@@ -3,6 +3,7 @@ package br.com.dbserver.selenium_jupiter.appObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import br.com.dbserver.selenium_jupiter.tools.ElementsTools;
 
@@ -15,31 +16,46 @@ public class AddressAppObject {
 	}
 	
 	public WebElement getAddressNameLabel() {
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[2]"));
+		WebElement element = ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[2]"));
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getCompanyLabel() {
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[3]"));
+		WebElement element = ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[3]"));
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getAddressLabel() {
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[4]"));
+		WebElement element = ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[4]"));
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getCityStatePostCodeLabel() {
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[5]"));
+		WebElement element = ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[5]"));
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
+	
 	public WebElement getCountryLabel() {
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[6]"));
+		WebElement element = ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[6]"));
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getMobileLabel() {
-		return ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[7]"));
+		WebElement element = ElementsTools.waitForElement(this.driver, By.xpath("//*[@id=\"address_delivery\"]/li[7]"));
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getProceedCheckoutButton() {
-		return ElementsTools.waitForElement(this.driver, By.name("processAddress"));
+		WebElement element = ElementsTools.waitForElement(this.driver, By.name("processAddress"));
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 
 }

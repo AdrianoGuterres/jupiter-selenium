@@ -15,16 +15,15 @@ public class ElementsTools {
 		return wait.until(ExpectedConditions.elementToBeClickable(locator));		
 	}	
 	
-	public static WebDriver highlightElement(WebDriver driver, WebElement element){
+	public static void highlightElement(WebDriver driver, WebElement element){
 		new Actions(driver).moveToElement(element);
-		((JavascriptExecutor)driver).executeScript("arguments[0].style.border='3px solid red'", element);
-		return driver;  
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		((JavascriptExecutor)driver).executeScript("arguments[0].style.border='2px solid red'", element);		
 	}
 	
-	public static WebDriver unHighlightElement(WebDriver driver, WebElement element){ 
-	//	((JavascriptExecutor)driver).executeScript("arguments[0].style.border=''", element);		
-		return driver;  
+	public static void unHighlightElement(WebDriver driver){ 
+		((JavascriptExecutor)driver).executeScript("arguments[0].style.border=''", driver.findElement(By.tagName("body")));	
 	}
 	
-	
+
 }

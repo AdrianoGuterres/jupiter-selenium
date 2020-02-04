@@ -3,6 +3,7 @@ package br.com.dbserver.selenium_jupiter.appObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import br.com.dbserver.selenium_jupiter.tools.ElementsTools;
 
@@ -16,71 +17,105 @@ public class MyAccountPageAppObject {
 	}
 	
 	public WebElement getTitleMisterRadioButton() {		
-		return ElementsTools.waitForElement(this.driver, By.id("id_gender1"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("id_gender1"));	
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getTitleMissRadioButton() {
-		return ElementsTools.waitForElement(this.driver, By.id("id_gender2"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("id_gender2"));		
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getFirstNameTexfield() {
-		return ElementsTools.waitForElement(this.driver, By.id("customer_firstname"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("customer_firstname"));
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getLastNameTexfield() {
-		return ElementsTools.waitForElement(this.driver, By.id("customer_lastname"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("customer_lastname"));		
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getEmailTexfield() {
-		return ElementsTools.waitForElement(this.driver, By.id("email"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("email"));		
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getPasswordTexfield() {
-		return ElementsTools.waitForElement(this.driver, By.id("passwd"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("passwd"));	
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getDaysBithdayCombobox() {
-		return this.driver.findElement(By.id("days"));
+		WebElement element = this.driver.findElement(By.id("days"));
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getMonthBithdayCombobox() {
-		return this.driver.findElement(By.id("months"));		
+		WebElement element = this.driver.findElement(By.id("months"));		
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getYearBithdayCombobox() {
-		return this.driver.findElement(By.id("years"));		
+		WebElement element = this.driver.findElement(By.id("years"));		
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getCompanyTextfield() {
-		return ElementsTools.waitForElement(this.driver, By.id("company"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("company"));
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getAddressTextfield() {
-		return ElementsTools.waitForElement(this.driver, By.id("address1"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("address1"));		
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getCityTextfield() {
-		return ElementsTools.waitForElement(this.driver, By.id("city"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("city"));		
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getStateCombobox() {
-		return this.driver.findElement(By.id("id_state"));		
+		WebElement element = this.driver.findElement(By.id("id_state"));	
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getPostCodeTextfield() {
-		return ElementsTools.waitForElement(this.driver, By.id("postcode"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("postcode"));		
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getCountryCombobox() {
-		return this.driver.findElement(By.id("id_country"));		
+		WebElement element = this.driver.findElement(By.id("id_country"));		
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getMobileTextfield() {
-		return ElementsTools.waitForElement(this.driver, By.id("phone_mobile"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("phone_mobile"));	
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 	public WebElement getRegisterButton() {
-		return ElementsTools.waitForElement(this.driver, By.id("submitAccount"));		
+		WebElement element = ElementsTools.waitForElement(this.driver, By.id("submitAccount"));		
+		new Actions(driver).moveToElement(element).perform();
+		return element;
 	}
 	
 

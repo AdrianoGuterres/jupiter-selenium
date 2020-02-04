@@ -1,5 +1,7 @@
 package br.com.dbserver.selenium_jupiter.testCases;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -40,9 +42,9 @@ class ComprarUmItemTestCase {
 
 	@BeforeAll  		
 	public void setUp() {		
-		
+
 		Report.startTest("Comprar Um Item");
-		
+
 		this.customerFake = new CustomerFake();
 
 		this.driver = DriverConfig.getWebdriverChrome("http://automationpractice.com/index.php");	
@@ -68,47 +70,62 @@ class ComprarUmItemTestCase {
 	@Test
 	public void testMain() {	
 
-		this.homePageTasks.selectItemMenu();		
-		this.homePageTasks.chooseFirstItemBlock();		
-		this.homePageTasks.clickFirstItemBlock();	
+		try {
 
-		String productName  = itemPageTasks.getProductNameLabel();
-		String productQtd   = itemPageTasks.getProductQtdLabel();
-		String productPrice = itemPageTasks.getProductPriceLabel();		
+			this.homePageTasks.selectItemMenu();		
+			this.homePageTasks.chooseFirstItemBlock();		
+			this.homePageTasks.clickFirstItemBlock();	
 
-		this.itemPageTasks.clickAddCartButton();		
-		this.itemPageTasks.clickProceedCheckoutButton();
-		this.verifications.verifyProductNameInOrder(productName);		
-		this.verifications.verifyProductPriceInOrder(productPrice);
-		this.verifications.verifyProductQtdInOrder(productQtd);
-		this.verifications.verifyProductPriceTotalLabel();		
-		this.verifications.verifySumTotalOrderLabel();				
-		this.orderTasks.clickProceedToCheckoutButton();
-		this.loginPageTasks.fillEmailAddressTextfield(this.customerFake.getEmail());		
-		this.loginPageTasks.clickCreateAccountButton();
-		this.accountTasks.markMisterRadioButton();		
-		this.accountTasks.fillFirstNameTextfield(this.customerFake.getName());		
-		this.accountTasks.fillLastNameTextfield(this.customerFake.getLastName());		
-		this.accountTasks.fillLastEmailTextfield(this.customerFake.getEmail());		
-		this.accountTasks.fillPasswordTextfield(this.customerFake.getPassword());	
-		this.accountTasks.choseDaysBithdayCombobox(this.customerFake.getDayBirthday()+"");		
-		this.accountTasks.choseMonthBithdayCombobox(this.customerFake.getMonthBirthday()+"");		
-		this.accountTasks.choseYearComboboxCombobox(this.customerFake.getYearBirthday()+"");		
-		this.accountTasks.fillCompanyTextfield(this.customerFake.getCompany());		
-		this.accountTasks.fillAddressTextfield(this.customerFake.getStreet());		
-		this.accountTasks.fillCityTextfield(this.customerFake.getCity());				
-		this.accountTasks.choseStateCombobox(this.customerFake.getState());		
-		this.accountTasks.fillPostCodeTextfield(this.customerFake.getPostalCode());		
-		this.accountTasks.choseCountryCombobox(this.customerFake.getCountry());		
-		this.accountTasks.fillMobileTextfield(this.customerFake.getMobile());		
-		this.accountTasks.clickRegisterButton();		
-		this.verifications.verifyAddress(customerFake);		
-		this.addressTasks.clickProceedCheckoutButton();		
-		this.shippingTasks.markIGreeCheckbox();
-		this.shippingTasks.clickProceedCheckout();		
-		this.paymentTasks.clickBankWireButton();
+			String productName  = itemPageTasks.getProductNameLabel();
+			String productQtd   = itemPageTasks.getProductQtdLabel();
+			String productPrice = itemPageTasks.getProductPriceLabel();		
 
-		this.orderSumariTasks.clickIconfirmmButton();
+			this.itemPageTasks.clickAddCartButton();		
+			this.itemPageTasks.clickProceedCheckoutButton();
+
+			this.verifications.verifyProductNameInOrder(productName);		
+			this.verifications.verifyProductPriceInOrder(productPrice);
+			this.verifications.verifyProductQtdInOrder(productQtd);
+			this.verifications.verifyProductPriceTotalLabel();		
+			this.verifications.verifySumTotalOrderLabel();		
+
+			this.orderTasks.clickProceedToCheckoutButton();
+			this.loginPageTasks.fillEmailAddressTextfield(this.customerFake.getEmail());		
+			this.loginPageTasks.clickCreateAccountButton();
+			this.accountTasks.markMisterRadioButton();		
+			this.accountTasks.fillFirstNameTextfield(this.customerFake.getName());		
+			this.accountTasks.fillLastNameTextfield(this.customerFake.getLastName());		
+			this.accountTasks.fillLastEmailTextfield(this.customerFake.getEmail());		
+			this.accountTasks.fillPasswordTextfield(this.customerFake.getPassword());	
+			this.accountTasks.choseDaysBithdayCombobox(this.customerFake.getDayBirthday()+"");		
+			this.accountTasks.choseMonthBithdayCombobox(this.customerFake.getMonthBirthday()+"");		
+			this.accountTasks.choseYearComboboxCombobox(this.customerFake.getYearBirthday()+"");		
+			this.accountTasks.fillCompanyTextfield(this.customerFake.getCompany());		
+			this.accountTasks.fillAddressTextfield(this.customerFake.getStreet());		
+			this.accountTasks.fillCityTextfield(this.customerFake.getCity());				
+			this.accountTasks.choseStateCombobox(this.customerFake.getState());		
+			this.accountTasks.fillPostCodeTextfield(this.customerFake.getPostalCode());		
+			this.accountTasks.choseCountryCombobox(this.customerFake.getCountry());		
+			this.accountTasks.fillMobileTextfield(this.customerFake.getMobile());		
+			this.accountTasks.clickRegisterButton();		
+
+			this.verifications.verifyAddressName(customerFake);	
+			this.verifications.verifyAddressCompany(customerFake);	
+			this.verifications.verifyAddressStreet(customerFake);	
+			this.verifications.verifyAddressCityStatePostcode(customerFake);	
+			this.verifications.verifyAddressCountry(customerFake);	
+			this.verifications.verifyAddressMobile(customerFake);	
+
+			this.addressTasks.clickProceedCheckoutButton();		
+			this.shippingTasks.markIGreeCheckbox();
+			this.shippingTasks.clickProceedCheckout();		
+			this.paymentTasks.clickBankWireButton();
+
+			this.orderSumariTasks.clickIconfirmmButton();
+
+		}catch (Exception e) {
+			fail();
+		}
 
 	}
 }

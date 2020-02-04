@@ -22,7 +22,7 @@ public class Report {
 	private static ExtentTest extentTest;
 
 	public static void create(String title, String description) {		
-		String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
+		String date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyyy_HH-mm"));
 		String name = title.replace(" ", "_");		
 		String path = "./reports/"+name+"__"+date+".html";		
 		

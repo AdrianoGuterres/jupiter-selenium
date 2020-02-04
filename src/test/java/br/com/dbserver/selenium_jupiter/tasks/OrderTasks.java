@@ -18,49 +18,48 @@ public class OrderTasks {
 	
 	public String getProductNameLabel() {
 		WebElement element = appObject.getProductNameLabel();
-		ElementsTools.highlightElement(driver, element);
+		ElementsTools.highlightElement(this.driver, element);
 		return element.getText();
 	}	
 	public String getProductQtdLabel() {
-		WebElement element = appObject.getProductQtdLabel(); 
-		ElementsTools.highlightElement(driver, element);
+		WebElement element = appObject.getProductQtdLabel(); 		
+		ElementsTools.highlightElement(this.driver, element);
 		return element.getAttribute("value");
 	}
 	public String getProductPriceLabel() {	
 		WebElement element = appObject.getProductPriceLabel();
-		ElementsTools.highlightElement(driver, element);
+		ElementsTools.highlightElement(this.driver, element);
 		return element.getText();
 	}
 	public String getProductPriceTotalLabel() {
 		WebElement element = appObject.getProductPriceTotalLabel();
-		ElementsTools.highlightElement(driver, element);
+		ElementsTools.highlightElement(this.driver, element);
 		return element.getText();
 	}	
 	
 	public String getTotalAllProductsLabel() {
 		WebElement element = appObject.getTotalProductsLabel();
-		ElementsTools.highlightElement(driver, element);
+		ElementsTools.highlightElement(this.driver, element);
 		return element.getText();
 	}
 	public String getTotalShippingLabel() {
 		WebElement element = appObject.getTotalShippinglLabel();
-		ElementsTools.highlightElement(driver, element);
+		ElementsTools.highlightElement(this.driver, element);
 		return element.getText();
 	}	
 	public String getTotalTaxLabel() {
 		WebElement element = appObject.getTotalTaxlLabel();
-		ElementsTools.highlightElement(driver, element);
+		ElementsTools.highlightElement(this.driver, element);
 		return element.getText();
 	}
 	public String getTotalOrderLabel() {
 		WebElement element = appObject.getTotalOrderLabel();
-		ElementsTools.highlightElement(driver, element);
+		ElementsTools.highlightElement(this.driver, element);
 		return element.getText();
-	}
-	
+	}	
 	public void clickProceedToCheckoutButton() {
 		WebElement element = this.appObject.getProceedToCheckoutButton();
-		ElementsTools.highlightElement(driver, element);
+		ElementsTools.highlightElement(this.driver, element);
 		element.click();
 	}
 	
